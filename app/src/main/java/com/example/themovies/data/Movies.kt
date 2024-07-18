@@ -11,10 +11,10 @@ data class Movies (
         @SerializedName("Runtime") val runtime: String,
         @SerializedName("Director") val director: String,
         @SerializedName("Genre") val genre: String,
-        @SerializedName("Country") val country: String) {
-}
+        @SerializedName("Country") val country: String)
+
 
 data class MoviesResponse (
         @SerializedName("Search") val movies: List<Movies>,
         @SerializedName("Response") val response: String,
-        @SerializedName("Error") val error: String?) {}
+        @SerializedName("Error") val error: String?)

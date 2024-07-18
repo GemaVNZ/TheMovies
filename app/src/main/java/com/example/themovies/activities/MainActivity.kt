@@ -16,6 +16,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.themovies.R
 import com.example.themovies.data.MoviesResponse
 import kotlinx.coroutines.withContext
@@ -36,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.recyclerViewMain.adapter = adapter
-        binding.recyclerViewMain.layoutManager = GridLayoutManager(this, 2)
+        binding.recyclerViewMain.layoutManager = LinearLayoutManager(this)
 
         findMoviesById("tt3896198")
 
@@ -45,7 +46,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
         initSearchView(menu?.findItem(R.id.menu_search))
-
         return true
     }
 
@@ -83,21 +83,12 @@ class MainActivity : AppCompatActivity() {
     private fun navigateToDetail(movies: Movies) {
             val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra("MOVIES_ID", movies.imdbID)
-            /*intent.putExtra("MOVIES_TITLE", movies.title)
-            intent.putExtra("MOVIES_YEAR", movies.year)
-            intent.putExtra("MOVIES_IMAGE", movies.imageURL)
-            intent.putExtra("MOVIES_PLOT", movies.plot)
-            intent.putExtra("MOVIES_RUNTIME", movies.runtime)
-            intent.putExtra("MOVIES_DIRECTOR", movies.director)
-            intent.putExtra("MOVIES_GENRE", movies.genre)
-            intent.putExtra("MOVIES_COUNTRY", movies.country)*/
             startActivity(intent)
 
         }
 
     private fun findMoviesById(imdbID: String) {
         val service: MoviesAPIService = RetrofitProvider.getRetrofit()
-        //Llamada al segundo hilo
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val movie = service.findMoviesById(imdbID)
@@ -125,6 +116,7 @@ class MainActivity : AppCompatActivity() {
                         moviesList = response.movies
                         adapter.updateData(moviesList)
                     } else {
+                        Toast.makeText(this@MainActivity, "No se encontraron películas con el título '$title'", Toast.LENGTH_SHORT).show()
                     }
                 }
             } catch (e: Exception) {
