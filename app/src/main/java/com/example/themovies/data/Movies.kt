@@ -3,7 +3,8 @@ package com.example.themovies.data
 import com.google.gson.annotations.SerializedName
 
 data class Movies (
-        @SerializedName("Title") val id:String,
+        @SerializedName ("imdbID") val imdbID: String,
+        @SerializedName("Title") val title:String,
         @SerializedName("Year") val year: String,
         @SerializedName("Poster") val imageURL : String,
         @SerializedName("Plot") val plot: String,

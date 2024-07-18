@@ -35,7 +35,7 @@ class MoviesAdapter (private var dataSet : List <Movies> = emptyList(),
 
             //Método para pintar la vista
             fun render(movies: Movies) {
-                binding.nameTextView.text = movies.id
+                //binding.nameTextView.text = movies.title
                 Picasso.get().load(movies.imageURL).into(binding.avatarImageView)
             }
 

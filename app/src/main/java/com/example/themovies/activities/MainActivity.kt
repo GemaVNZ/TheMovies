@@ -82,14 +82,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun navigateToDetail(movies: Movies) {
             val intent = Intent(this, DetailActivity::class.java)
-            intent.putExtra("MOVIES_ID", movies.id)
+            intent.putExtra("MOVIES_ID", movies.imdbID)
+            /*intent.putExtra("MOVIES_TITLE", movies.title)
             intent.putExtra("MOVIES_YEAR", movies.year)
             intent.putExtra("MOVIES_IMAGE", movies.imageURL)
             intent.putExtra("MOVIES_PLOT", movies.plot)
             intent.putExtra("MOVIES_RUNTIME", movies.runtime)
             intent.putExtra("MOVIES_DIRECTOR", movies.director)
             intent.putExtra("MOVIES_GENRE", movies.genre)
-            intent.putExtra("MOVIES_COUNTRY", movies.country)
+            intent.putExtra("MOVIES_COUNTRY", movies.country)*/
             startActivity(intent)
 
         }
@@ -115,19 +116,15 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun searchMoviesByTitle(title: String) {
-        // Utiliza el contexto IO para realizar la llamada a la API
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val service = RetrofitProvider.getRetrofit()
                 val response: MoviesResponse = service.searchMoviesByTitle(title)
                 withContext(Dispatchers.Main) {
-                    // Verifica si la respuesta es exitosa y actualiza la lista de películas y la UI
                     if (response.response == "True") {
                         moviesList = response.movies
                         adapter.updateData(moviesList)
                     } else {
-                        // Manejo de errores si la respuesta no es exitosa
-                        // Puedes mostrar un mensaje al usuario, por ejemplo
                     }
                 }
             } catch (e: Exception) {
