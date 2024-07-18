@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.DetailActivity">
+
+
+    <!-- Contenido del superhéroe -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Imagen del superhéroe -->
+        <ImageView
+            android:id="@+id/avatarImageView"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:scaleType="centerCrop"/>
+
+        <!-- Nombre del superhéroe -->
+        <TextView
+            android:id="@+id/moviesidTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="16dp"
+            android:paddingBottom="8dp"
+            android:text="@string/title"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <!-- Biografía -->
+        <TextView
+            android:id="@+id/moviesgenreTextViewe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="4dp"
+            android:paddingBottom="16dp"
+            android:text="@string/g_nero_de_la_pel_cula"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+                <!-- Título de estadísticas -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="8dp"
+                    android:text="@string/datos_de_la_pel_cula"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <!-- Detalles de estadísticas -->
+                <TextView
+                    android:id="@+id/moviesyeartextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/a_o"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/moviesruntimetextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/runtime"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                 <TextView
+                    android:id="@+id/moviesdirectortextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/director"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/moviescountrytextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/country"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/moviesplottextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="4dp"
+                    android:text="@string/plot"
+                    android:textColor="@android:color/darker_gray"
+                    android:textSize="14sp" />
+
+
+            </LinearLayout>
+
+    </LinearLayout>
+
